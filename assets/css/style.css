@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:wght@300;400;800&family=Ubuntu:ital,wght@0,400;0,500;1,700&display=swap');
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #0a0808c5;
+    --secondary: #8902f8;
+    --tertiary: rgb(189, 161, 4);
+    --white: rgb(255, 255, 255);
+    font-size: 42.5%;
+}
+
+body {
+    background: #c7c7c7;
+    color: var(--secondary);
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif
+}
+
+/* Header */
+
+header {
+    display: flex;
+    justify-content: space-between;
+    width: 85%;
+    margin-left: 30px;
+}
+
+#view-high-scores:hover {
+    cursor: pointer;
+    color: var(--tertiary);
+    text-shadow: rgba(0, 8, 8, 0.87);
+}
+
+header h4 {
+    font-size: 13px;
+    display: inline;
+}
+
+.timer {
+    font-size: 13px;
+    color: var(--primary);
+    display: inline;
+    text-align: right;
+}
+
+/*Main content */
+
+.container {
+    padding: 20px;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
+h1 {
+    color: var(--primary);
+    font-size: 3.0rem;
+    font-weight: bold;
+}
+
+p {
+    color: var(--primary);
+    font-size: 2.0rem;
+}
+
+.start {
+    align-items: center;
+    text-align: center;
+}
+
+.start h1, .start p {
+    text-align: center;
+}
+
+/*Button Styling */
+
+.btn {
+    background: var(--secondary);
+    color: var(--white);
+    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    box-shadow: 0 3px grey;
+    margin-top: 10px;
+}
+.start-end {
+    width: 25%;
+    margin-top: 10px;
+}
+.visible{
+    display: flex;
+}
+.hidden{
+    display: none;
+}
