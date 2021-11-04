@@ -1,5 +1,5 @@
 var containerQuestionEl = document.getElementById("question-container");
-var containerStartEl = document.getElementById("starter-container");
+var containerIntroEl = document.getElementById("intro-container");
 var containerEndEl = document.getElementById("end-container")
 var containerScoreEl = document.getElementById("score-banner")
 var formInitials = document.getElementById("initials-form")
@@ -72,9 +72,9 @@ var questions = [
 //if go back button is hit on high score page
 var renderStartPage = function () {
     containerHighScoresEl.classList.add("hidden")
-    containerHighScoresEl.classList.remove("visibile")
-    containerStartEl.classList.remove("hidden")
-    containerStartEl.classList.add("visible")
+    containerHighScoresEl.classList.remove("visible")
+    containerIntroEl.classList.remove("hidden")
+    containerIntroEl.classList.add("visible")
     containerScoreEl.removeChild(containerScoreEl.lastChild)
     QuestionIndex = 0
     gameover = ""
@@ -93,7 +93,7 @@ var renderStartPage = function () {
 
 //every second, check if game-over is true, or if there is time left. Start time at 30. 
 var setTime = function () {
-    timeleft = 30;
+    timeleft = 10;
 
     var timercheck = setInterval(function () {
         timerEl.innerText = timeleft;
@@ -113,12 +113,12 @@ var setTime = function () {
 }
 
 var startGame = function () {
-    //add classes to show/hide start and quiz screen
-    containerStartEl.classList.add('hidden');
-    containerStartEl.classList.remove('visibel');
+    //add classes to visible/hidden to start and quiz screen
+    containerIntroEl.classList.add('hidden');
+    containerIntroEl.classList.remove('visible');
     containerQuestionEl.classList.remove('hidden');
     containerQuestionEl.classList.add('visible');
-    //Shuffle the questions so they show in random order
+    //Shuffle the questions so they visible in random order
     arrayShuffledQuestions = questions.sort(() => Math.random() - 0.5)
     setTime()
     setQuestion()
@@ -151,20 +151,20 @@ var displayQuestion = function (index) {
 };
 //display correct! on screen
 var answerCorrect = function () {
-    if (correctEl.className = "hide") {
-        correctEl.classList.remove("hide")
+    if (correctEl.className = "hidden") {
+        correctEl.classList.remove("hidden")
         correctEl.classList.add("banner")
         wrongEl.classList.remove("banner")
-        wrongEl.classList.add("hide")
+        wrongEl.classList.add("hidden")
     }
 }
 //display wrong! on screen
 var answerWrong = function () {
-    if (wrongEl.className = "hide") {
-        wrongEl.classList.remove("hide")
+    if (wrongEl.className = "hidden") {
+        wrongEl.classList.remove("hidden")
         wrongEl.classList.add("banner")
         correctEl.classList.remove("banner")
-        correctEl.classList.add("hide")
+        correctEl.classList.add("hidden")
     }
 }
 
@@ -179,12 +179,12 @@ var answerCheck = function (event) {
     else {
         answerWrong()
         score = score - 1;
-        timeleft = timeleft - 3;
+        timeleft = timeleft - 10;
     };
 
     //go to next question, check if there is more questions
     QuestionIndex++
-    if (arrayShuffledQuestions.length > QuestionIndex + 1) {
+    if (arrayShuffledQuestions.length > QuestionIndex + timeleft + 1) {
         setQuestion()
     }
     else {
@@ -195,9 +195,9 @@ var answerCheck = function (event) {
 
 //Display total score screen at end of game
 var showScore = function () {
-    containerQuestionEl.classList.add("hide");
-    containerEndEl.classList.remove("hide");
-    containerEndEl.classList.add("show");
+    containerQuestionEl.classList.add("hidden");
+    containerEndEl.classList.remove("hidden");
+    containerEndEl.classList.add("visible");
 
     var scoreDisplay = document.createElement("p");
     scoreDisplay.innerText = ("Your final score is " + score + "!");
@@ -271,32 +271,32 @@ var loadHighScore = function () {
 //display high score screen from link or when intiials entered
 var displayHighScores = function () {
 
-    containerHighScoresEl.classList.remove("hide");
-    containerHighScoresEl.classList.add("show");
+    containerHighScoresEl.classList.remove("hidden");
+    containerHighScoresEl.classList.add("visible");
     gameover = "true"
 
-    if (containerEndEl.className = "show") {
-        containerEndEl.classList.remove("show");
-        containerEndEl.classList.add("hide");
+    if (containerEndEl.className = "visible") {
+        containerEndEl.classList.remove("visible");
+        containerEndEl.classList.add("hidden");
     }
-    if (containerStartEl.className = "show") {
-        containerStartEl.classList.remove("show");
-        containerStartEl.classList.add("hide");
-    }
-
-    if (containerQuestionEl.className = "show") {
-        containerQuestionEl.classList.remove("show");
-        containerQuestionEl.classList.add("hide");
+    if (containerStartEl.className = "visible") {
+        containerStartEl.classList.remove("visible");
+        containerStartEl.classList.add("hidden");
     }
 
-    if (correctEl.className = "show") {
-        correctEl.classList.remove("show");
-        correctEl.classList.add("hide");
+    if (containerQuestionEl.className = "visible") {
+        containerQuestionEl.classList.remove("visible");
+        containerQuestionEl.classList.add("hidden");
     }
 
-    if (wrongEl.className = "show") {
-        wrongEl.classList.remove("show");
-        wrongEl.classList.add("hide");
+    if (correctEl.className = "visible") {
+        correctEl.classList.remove("visible");
+        correctEl.classList.add("hidden");
+    }
+
+    if (wrongEl.className = "visible") {
+        wrongEl.classList.remove("visible");
+        wrongEl.classList.add("hidden");
     }
 
 }
