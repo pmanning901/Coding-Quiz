@@ -161,9 +161,10 @@ p {
     margin-top: 10px;
 }
 .answerbtn {
-    width: 33%;
+    width: 45%;
     text-align: left;
     font-size: 15px;
+    line-height: 20px;
 }
 
 /* correct/wrong styling */
@@ -182,12 +183,12 @@ ol {
  }
 
  li:nth-child(odd) {
-     background-color: rgba(228, 151, 164, 0.5);;
- }
+   color:  var(--tertiary); }
 
 
 li {
-    font-size: 4.0vw;
+    font-size: 25px;
+    font-family: 'Ubuntu', sans-serif
 }
 
 /* media query for smaller screens */

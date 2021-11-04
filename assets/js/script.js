@@ -33,40 +33,48 @@ var QuestionIndex = 0
 // The array of questions for our quiz game.
 var questions = [
     {
-        q: 'Arrays in Javascript can be used to store __________.',
-        a: '4. all of the above',
-        choices: [{ choice: '1. numbers' }, { choice: '2. booleans' }, { choice: '3. strings' }, { choice: '4. all of the above' }]
+        q: 'In JavaScript, what is a block of code called that is used to perform a specific task?',
+        a: '1. Function',
+        choices: [{ choice: '1. Function' }, { choice: '2. booleans' }, { choice: '3. strings' }, { choice: '4. all of the above' }]
     },
     {
-        q: 'Inside which HTML element do we put the javascript?',
-        a: '3. <script>',
-        choices: [{ choice: '1. <h1>' }, { choice: '2. <js>' }, { choice: '3. <script>' }, { choice: '4. <head>' }]
+        q: 'Which of the following would be how you test if the variable "b" is equal to the number 5?',
+        a: '4. if(b==5) {}',
+        choices: [{ choice: '1. if{b==5}[]' }, { choice: '2. if(b=5)()' }, { choice: '3. if{b=true}[]' }, { choice: '4. if(b==5) {}' }]
     },
     {
         q: 'In the code -- setinterval(time(),1000) -- what is time()?',
-        a: '1. callback function',
-        choices: [{ choice: '1. callback function' }, { choice: '2. undefined' }, { choice: '3. variable' }, { choice: '4. all of the above' }]
+        a: '1. callback function  ',
+        choices: [{ choice: '1. callback function' }, { choice: '2. "This" keyword refers to the object from where it was called.'
+
+    }, { choice: '3. variable' }, { choice: '4. all of the above' }]
     },
     {
-        q: 'What syntax would call a function?',
-        a: '4. function()',
-        choices: [{ choice: '1. var function' }, { choice: '2. function' }, { choice: '3. call function' }, { choice: '4. function()' }]
+        q: 'What is "this" keyword in JavaScript?',
+        a: '2. This" keyword refers to the object from where it was called',
+        choices: [{ choice: '1. "This" keyword refers to an alert called by an event listener.' }, { choice: '2. This" keyword refers to the object from where it was called' }, { choice: '3. "This" keyword reflects on the else/if statement in a for loop.' }, { choice: '4. "This" keyword refers to an element of Jquery.' }]
     },
     {
-        q: 'When did javascript first appear?',
-        a: '1. 1995',
-        choices: [{ choice: '1. 1995' }, { choice: '2. Roaring twenties' }, { choice: '3. 2005' }, { choice: '4. 2000' }]
+        q: 'In the statement for(x = 1; x < 10; x++) the test condition is ___________________.',
+        a: '1. x < 10 (true)',
+        choices: [{ choice: '1. x < 10 (true)' }, { choice: '2. x <=10(+true)' }, { choice: '3. x < "10"(true)' }, { choice: '4. x < 10 =(true)' }]
     },
     {
-        q: 'What does DOM stand for?',
-        a: '2. Document Object Model',
-        choices: [{ choice: '1. Do Overnight Modules' }, { choice: '2. Document Object Model' }, { choice: '3. Divas Obviously Model' }, { choice: '4. Do Oo Mo' }]
+        q: 'What Math.floor(Math.random() *100) return?',
+        a: '3. Returns a random integer from 0 to 99',
+        choices: [{ choice: '1. Returns a random integar with a floor of 100 and ceiling of 0' }, { choice: '2. Returns a random integer of 0 to 100' }, { choice: '3. Returns a random integer from 0 to 99' }, { choice: '4. Returns a random integar from 0 to 10 and then multiplies it  by 100' }]
     },
     {
         q: 'What is getItem commonly used for?',
         a: '2. local storage',
         choices: [{ choice: '1. adding drama' }, { choice: '2. local storage' }, { choice: '3. online shopping' }, { choice: '4. naming a variable' }]
     },
+    {
+        q: 'If you save your array of objects to the browser’s local storage and it looks like [Object object] when you visit it in Chrome’s DevTools, what’s wrong?',
+        a: '4. The array wasn’t stringified with JSON.stringify() before saving it in Local Storage.',
+        choices: [{choice: '1. The array wasn’t parsed with JSON.parse() before saving it to Local Storage.'}, { choice: '2. The array wasnt alerted with JSON.parse() before saving it to Local Storage.'}, { choice: '3. The array wasn’t  defined.'}, {choice: '4. The array wasn’t stringified with JSON.stringify() before saving it in Local Storage.'} ]
+    },
+
 ];
 
 //if go back button is hit on high score page
@@ -91,9 +99,9 @@ var renderStartPage = function () {
     }
 }
 
-//every second, check if game-over is true, or if there is time left. Start time at 30. 
+//every second, check if game-over is true, or if there is time left. Start time at 60. 
 var setTime = function () {
-    timeleft = 10;
+    timeleft = 60;
 
     var timercheck = setInterval(function () {
         timerEl.innerText = timeleft;
@@ -165,7 +173,8 @@ var answerWrong = function () {
         wrongEl.classList.add("banner")
         correctEl.classList.remove("banner")
         correctEl.classList.add("hidden")
-    }
+     }
+     
 }
 
 //check if answer is correct    
@@ -173,7 +182,7 @@ var answerCheck = function (event) {
     var selectedanswer = event.target
     if (arrayShuffledQuestions[QuestionIndex].a === selectedanswer.innerText) {
         answerCorrect()
-        score = score + 7
+        score = timeleft + 5
     }
 
     else {
@@ -184,7 +193,7 @@ var answerCheck = function (event) {
 
     //go to next question, check if there is more questions
     QuestionIndex++
-    if (arrayShuffledQuestions.length > QuestionIndex + timeleft + 1) {
+    if (arrayShuffledQuestions.length > QuestionIndex + 1) {
         setQuestion()
     }
     else {
@@ -193,7 +202,7 @@ var answerCheck = function (event) {
     }
 }
 
-//Display total score screen at end of game
+//Display total score screen at end of game with timer 
 var showScore = function () {
     containerQuestionEl.classList.add("hidden");
     containerEndEl.classList.remove("hidden");
@@ -240,13 +249,13 @@ var createHighScore = function (event) {
     displayHighScores();
 
 }
-//save high score
+//save user high score
 var saveHighScore = function () {
     localStorage.setItem("HighScores", JSON.stringify(HighScores))
 
 }
 
-//load values/ called on page load
+//load values/ called on page at load
 var loadHighScore = function () {
     var LoadedHighScores = localStorage.getItem("HighScores")
     if (!LoadedHighScores) {
