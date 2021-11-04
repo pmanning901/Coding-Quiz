@@ -19,7 +19,7 @@ body {
     font-family: 'Ubuntu', sans-serif
 }
 
-/* Header */
+/* Header styling starts here */
 
 header {
     display: flex;
@@ -27,6 +27,8 @@ header {
     width: 85%;
     margin-left: 30px;
 }
+
+/* Added hover function to Scores */
 
 #view-high-scores:hover {
     cursor: pointer;
@@ -46,42 +48,48 @@ header h4 {
     text-align: right;
 }
 
-  /*Main content */
-  .container {
+/* Header styling ends here */
+
+/* Body content styling starts here */
+
+.container {
     padding: 20px;
     flex-direction: column;
     width: 50%;
     margin: auto;
 }
 
-
 h1 {
-  color: var(--primary);
-  font-size: 3.0rem;
-  font-weight: bold;
+    color: var(--primary);
+    font-size: 3.0rem;
+    font-weight: bold;
 }
 
 p {
-  color: var(--primary);
-  font-size: 20px;
-  padding: 10px;
-  line-height: 40px;
+    color: var(--primary);
+    font-size: 20px;
+    padding: 10px;
+    line-height: 40px;
 }
 
 .start {
-  align-items: center;
-  text-align: center;
-  }
-
-.start h1, .start p {
-   text-align: center;
+    align-items: center;
+    text-align: center;
 }
 
+.start h1, .start p {
+    text-align: center;
+}
+
+/* Content styling ender here */
+
+/* Question styling starts here */
+
 .questions {
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: 40px 20px;
-  margin: auto;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 40px 20px;
+    margin: auto;
 }
 
 .end h1, .end p {
@@ -89,17 +97,21 @@ p {
 }
 
 .end input {
-  outline: thick; 
-  border-width: 1px;
-  padding: 5px;
-  width: 15%;
-  font-size: 2.2rem;
-  border-radius: 5px;
+    outline: thick;
+    border-width: 1px;
+    padding: 5px;
+    width: 15%;
+    font-size: 2.2rem;
+    border-radius: 5px;
 }
 
 .end input:focus {
-  border: 2px solid var(--secondary);
+    border: 2px solid var(--secondary);
 }
+
+/* Question styling ends here */
+
+/* Attributes that make banners visible/hidden */
 
 .visible {
     display: flex;
@@ -110,17 +122,19 @@ p {
 }
 
 #question {
-  color: var(--primary);
-  text-align: left;
-  font-size: 3.0rem;
-  font-weight: bold;
+    color: var(--primary);
+    text-align: left;
+    font-size: 3.0rem;
+    font-weight: bold;
 }
 
 #high-score {
     text-align: left;
 }
 
-/*Button Styling */
+/* banner attributes end here */
+
+/*Button styling starts here */
 
 .btn {
     background: var(--secondary);
@@ -130,6 +144,7 @@ p {
     border: none;
     margin-top: 10px;
 }
+
 .btn:hover {
     background: var(--tertiary);
     border-radius: 10px;
@@ -160,6 +175,7 @@ p {
     width: 15%;
     margin-top: 10px;
 }
+
 .answerbtn {
     width: 45%;
     text-align: left;
@@ -167,7 +183,9 @@ p {
     line-height: 20px;
 }
 
-/* correct/wrong styling */
+/* Button styling ends here */
+
+/* correct/wrong styling starts here (might combine the two into one variable) */
 
 .banner {
     font-size: 25px;
@@ -176,41 +194,36 @@ p {
     font-style: italic;
     margin: 0 100px;
 }
-/* List for High Scores */
- 
+
+/* List for High Scores styling starts here*/
+
 ol {
     list-style-type: number;
- }
+}
 
- li:nth-child(odd) {
-   color:  var(--tertiary); }
-
+li:nth-child(odd) {
+    color: var(--tertiary);
+}
 
 li {
     font-size: 25px;
     font-family: 'Ubuntu', sans-serif
 }
 
-/* media query for smaller screens */
+/* media query styling for smaller screens */
 
 @media screen and (max-width: 1024px) {
-
     .btn {
         width: 100%;
         font-size: 3.0vw;
     }
-
     #question {
         font-size: 4.5vw;
     }
-
     h1 {
         font-size: 4.5vw;
     }
-
     p {
         font-size: 3.0vw;
     }
-
 }
-

@@ -45,9 +45,10 @@ var questions = [
     {
         q: 'In the code -- setinterval(time(),1000) -- what is time()?',
         a: '1. callback function  ',
-        choices: [{ choice: '1. callback function' }, { choice: '2. "This" keyword refers to the object from where it was called.'
+        choices: [{ choice: '1. callback function' }, {
+            choice: '2. "This" keyword refers to the object from where it was called.'
 
-    }, { choice: '3. variable' }, { choice: '4. all of the above' }]
+        }, { choice: '3. variable' }, { choice: '4. all of the above' }]
     },
     {
         q: 'What is "this" keyword in JavaScript?',
@@ -72,7 +73,7 @@ var questions = [
     {
         q: 'If you save your array of objects to the browser’s local storage and it looks like [Object object] when you visit it in Chrome’s DevTools, what’s wrong?',
         a: '4. The array wasn’t stringified with JSON.stringify() before saving it in Local Storage.',
-        choices: [{choice: '1. The array wasn’t parsed with JSON.parse() before saving it to Local Storage.'}, { choice: '2. The array wasnt alerted with JSON.parse() before saving it to Local Storage.'}, { choice: '3. The array wasn’t  defined.'}, {choice: '4. The array wasn’t stringified with JSON.stringify() before saving it in Local Storage.'} ]
+        choices: [{ choice: '1. The array wasn’t parsed with JSON.parse() before saving it to Local Storage.' }, { choice: '2. The array wasnt alerted with JSON.parse() before saving it to Local Storage.' }, { choice: '3. The array wasn’t  defined.' }, { choice: '4. The array wasn’t stringified with JSON.stringify() before saving it in Local Storage.' }]
     },
 
 ];
@@ -101,7 +102,7 @@ var renderStartPage = function () {
 
 //every second, check if game-over is true, or if there is time left. Start time at 60. 
 var setTime = function () {
-    timeleft = 60;
+    timeleft = 10;
 
     var timercheck = setInterval(function () {
         timerEl.innerText = timeleft;
@@ -173,8 +174,8 @@ var answerWrong = function () {
         wrongEl.classList.add("banner")
         correctEl.classList.remove("banner")
         correctEl.classList.add("hidden")
-     }
-     
+    }
+
 }
 
 //check if answer is correct    
@@ -182,7 +183,7 @@ var answerCheck = function (event) {
     var selectedanswer = event.target
     if (arrayShuffledQuestions[QuestionIndex].a === selectedanswer.innerText) {
         answerCorrect()
-        score = timeleft + 5
+        score = score + 5;
     }
 
     else {
@@ -209,7 +210,7 @@ var showScore = function () {
     containerEndEl.classList.add("visible");
 
     var scoreDisplay = document.createElement("p");
-    scoreDisplay.innerText = ("Your final score is " + score + "!");
+    scoreDisplay.innerText = ("Your final score is " + score +  "!");
     containerScoreEl.appendChild(scoreDisplay);
 }
 
