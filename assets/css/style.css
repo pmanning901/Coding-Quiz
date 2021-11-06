@@ -55,23 +55,29 @@ header h4 {
 .container {
     padding: 20px;
     flex-direction: column;
-    width: 50%;
+    width: 60%;
     margin: auto;
 }
 
 h1 {
     color: var(--primary);
-    font-size: 3.0rem;
+    font-size: 28px;
     font-weight: bold;
 }
 
 p {
     color: var(--primary);
-    font-size: 20px;
+    font-size: 18px;
     padding: 10px;
-    line-height: 40px;
+    line-height: 45px;
 }
-
+.bold{
+    color: var(--primary);
+    font-size: 18px;
+    padding: 10px;
+    line-height: 45px;
+    font-weight: bolder;
+}
 .start {
     align-items: center;
     text-align: center;

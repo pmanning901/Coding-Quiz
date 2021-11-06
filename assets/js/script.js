@@ -178,6 +178,7 @@ var answerWrong = function () {
 
 }
 
+
 //check if answer is correct    
 var answerCheck = function (event) {
     var selectedanswer = event.target
@@ -188,7 +189,7 @@ var answerCheck = function (event) {
 
     else {
         answerWrong()
-        score = score - 1;
+        score = score + 1;
         timeleft = timeleft - 10;
     };
 
