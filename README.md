@@ -17,8 +17,8 @@ Test your JavaScript knowledge with coding quiz that utilizes multiple choice qu
 https://user-images.githubusercontent.com/91038339/140426152-72deea8a-5ba5-4526-a474-1aab2abd3739.mov
 
 ## Website
-[Coding Quiz](https://pmanning901.github.io/Coding-Quiz/)
-[MyRepo](https://github.com/pmanning901/Coding-Quiz)
+* [Coding Quiz](https://pmanning901.github.io/Coding-Quiz/)
+* [MyRepo](https://github.com/pmanning901/Coding-Quiz)
 
 ## Code
 
